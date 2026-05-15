@@ -1,0 +1,29 @@
+[
+  {
+    "id": "banner_001",
+    "title": "Discover Your Perfect Aesthetic\nPremium Vitrified Tiles",
+    "description": "Transform your interiors with elegant and modern vitrified tile collections.",
+    "image": "https://media.designcafe.com/wp-content/uploads/2020/10/22162905/vitrified-tiles-design-ideas-for-your-home.jpg",
+    "overlayOpacity": 0.5,
+    "buttonText": "Browse Tiles",
+    "buttonLink": "/all-tiles"
+  },
+  {
+    "id": "banner_002",
+    "title": "Discover Your Perfect Aesthetic\nElegant Living Room Tile Designs",
+    "description": "Explore stylish floor tile aesthetics crafted for luxurious living spaces.",
+    "image": "https://media.designcafe.com/wp-content/uploads/2020/10/22162853/living-room-vitrified-tiles-elegant-floor-design.jpg",
+    "overlayOpacity": 0.5,
+    "buttonText": "Explore Collection",
+    "buttonLink": "/all-tiles"
+  },
+  {
+    "id": "banner_003",
+    "title": "Discover Your Perfect Aesthetic\nSafe & Stylish Bathroom Tiles",
+    "description": "Anti-skid vitrified tiles designed for modern bathrooms with maximum safety.",
+    "image": "https://media.designcafe.com/wp-content/uploads/2020/10/22162830/anti-skid-vitrified-tiles-flooring-for-bathroom.jpg",
+    "overlayOpacity": 0.5,
+    "buttonText": "View Details",
+    "buttonLink": "/all-tiles"
+  }
+]
