@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Ceramic",
+    "slug": "ceramic"
+  },
+  {
+    "id": 2,
+    "name": "Floor",
+    "slug": "floor"
+  },
+  {
+    "id": 3,
+    "name": "Checkered",
+    "slug": "checkered"
+  },
+  {
+    "id": 4,
+    "name": "Decorative",
+    "slug": "decorative"
+  },
+  {
+    "id": 5,
+    "name": "Brick",
+    "slug": "brick"
+  }
+]
