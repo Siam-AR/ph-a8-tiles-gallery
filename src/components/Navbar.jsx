@@ -20,7 +20,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href={"/"} className="flex gap-3 items-center">
           <Image
-            src={"/navbar-logo.png"}
+            src={"/black-logo.png"}
             alt="logo"
             priority
             width={40}
