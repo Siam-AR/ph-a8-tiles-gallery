@@ -7,31 +7,31 @@ import { FaSearch } from "react-icons/fa";
 import tiles from "../../../public/data.json";
 import categories from "../../../public/category.json";
 
-const AllPhotosPage = () => {
+const AllTilesPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-  const photos = tiles;
+  const tileItems = tiles;
 
-  const filteredPhotos = useMemo(() => {
-    let filtered = photos;
+  const filteredTiles = useMemo(() => {
+    let filtered = tileItems;
 
     // Filter by category
     if (selectedCategory) {
       filtered = filtered.filter(
-        (photo) =>
-          photo.category.toLowerCase() === selectedCategory.toLowerCase(),
+        (tile) =>
+          tile.category.toLowerCase() === selectedCategory.toLowerCase(),
       );
     }
 
     // Filter by search query
     if (searchQuery.trim()) {
-      filtered = filtered.filter((photo) =>
-        photo.title.toLowerCase().includes(searchQuery.toLowerCase()),
+      filtered = filtered.filter((tile) =>
+        tile.title.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
 
     return filtered;
-  }, [selectedCategory, searchQuery, photos]);
+  }, [selectedCategory, searchQuery, tileItems]);
 
   const handleClearFilters = () => {
     setSearchQuery("");
@@ -119,15 +119,15 @@ const AllPhotosPage = () => {
           <div className="max-w-4xl mx-auto text-sm text-gray-600 dark:text-gray-400">
             Found{" "}
             <span className="font-semibold text-gray-900 dark:text-white">
-              {filteredPhotos.length}
+              {filteredTiles.length}
             </span>{" "}
             {selectedCategory ? (
               <>
                 {selectedCategory} tile
-                {filteredPhotos.length !== 1 ? "s" : ""}
+                {filteredTiles.length !== 1 ? "s" : ""}
               </>
             ) : (
-              <>tile{filteredPhotos.length !== 1 ? "s" : ""}</>
+              <>tile{filteredTiles.length !== 1 ? "s" : ""}</>
             )}
             {searchQuery && <> matching {searchQuery}</>}
           </div>
@@ -137,10 +137,10 @@ const AllPhotosPage = () => {
       {/* Tiles Grid */}
       <div className="px-4">
         <div className="max-w-7xl mx-auto">
-          {filteredPhotos.length > 0 ? (
+          {filteredTiles.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {filteredPhotos.map((photo) => (
-                <TilesCard key={photo.id} photo={photo} />
+              {filteredTiles.map((tile) => (
+                <TilesCard key={tile.id} tile={tile} />
               ))}
             </div>
           ) : (
@@ -158,4 +158,4 @@ const AllPhotosPage = () => {
   );
 };
 
-export default AllPhotosPage;
+export default AllTilesPage;
