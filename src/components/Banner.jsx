@@ -10,7 +10,7 @@ const Banner = () => {
 
   // Fetch banner data
   useEffect(() => {
-    fetch("/banner-data.json")
+    fetch("/banner.json")
       .then((res) => res.json())
       .then((data) => setSlides(data));
   }, []);
@@ -38,7 +38,7 @@ const Banner = () => {
 
   return (
     <div
-      className="h-[75vh] bg-cover bg-center bg-no-repeat relative rounded-xl overflow-hidden my-5"
+      className="h-[75vh] bg-cover bg-center bg-no-repeat relative rounded-xl overflow-hidden"
       style={{
         backgroundImage: `url(${slide.image})`,
       }}

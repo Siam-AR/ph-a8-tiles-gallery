@@ -1,34 +1,30 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const OutfitFont = Outfit({
   subsets: ["latin"],
 });
+// english alph(latin), greek, arabic, bengali
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata = {
-  title: "Tile Gallery | Premium Modern Tiles",
-  description: "Explore premium vitrified and ceramic tile collections.",
+  title: "Tile Gallery",
+  description: "Showcase of modern tile collections built with Next.js",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${OutfitFont.className}  h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-
-        <Navbar></Navbar>
+      <body>
+        <Navbar/>
         <main className="container mx-auto">{children} </main>
-        <Footer></Footer>
+        <Footer/>
 
       </body>
     </html>

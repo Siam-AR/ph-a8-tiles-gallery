@@ -95,7 +95,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="/all-photos"
+                  href="/all-tiles"
                   className="hover:text-cyan-400 transition"
                 >
                   All Tiles
@@ -153,7 +153,7 @@ const Footer = () => {
             </div>
 
             <Link
-              href="/all-photos"
+              href="/all-tiles"
               className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition duration-300 text-sm font-semibold shadow-lg shadow-cyan-500/20"
             >
               Browse Tiles →

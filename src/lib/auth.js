@@ -2,26 +2,53 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-const client = new MongoClient(process.env.MONGODB_URI);
-const db = client.db('tiles-gallery');
+const mongoUri = process.env.MONGODB_URI ?? "mongodb://127.0.0.1:27017";
+const client = new MongoClient(mongoUri);
+const db = client.db("pixgen");
+
+const googleClientId = process.env.GOOGLE_CLIENT_ID;
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
+
+// Ensure the MongoDB client is connected
+async function getConnectedClient() {
+  try {
+    if (!client.topology || !client.topology.isConnected()) {
+      await client.connect();
+      console.log("MongoDB connected successfully");
+    }
+    return client;
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    throw error;
+  }
+}
 
 export const auth = betterAuth({
+  baseURL: process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
+  secret: process.env.BETTER_AUTH_SECRET ?? "development-secret-key-development-secret-key",
   database: mongodbAdapter(db, {
     client
   }),
-    emailAndPassword: { 
-    enabled: true, 
-  }, 
-   socialProviders: {
-        google: { 
-            clientId: process.env.GOOGLE_CLIENT_ID, 
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
-        },
-
-        github: { 
-            clientId: process.env.GITHUB_CLIENT_ID, 
-            clientSecret: process.env.GITHUB_CLIENT_SECRET, 
-        }, 
-    },
-    
+  emailAndPassword: {
+    enabled: true,
+    autoSignInAfterSignUp: true,
+  },
+  socialProviders: googleClientId && googleClientSecret ? {
+    google: {
+      clientId: googleClientId,
+      clientSecret: googleClientSecret
+    }
+  } : {},
+  session: {
+    expiresIn: 60 * 60 * 24 * 7,
+    updateAgeUntil: 60 * 60 * 24,
+    cookie: {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    }
+  }
 });
+
+// Initialize connection
+getConnectedClient().catch(console.error);

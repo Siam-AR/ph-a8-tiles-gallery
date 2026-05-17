@@ -1,15 +1,17 @@
 import Banner from "@/components/Banner";
-import FeaturedTiles from "@/components/FeaturedTiles";
-import MarqueeComponent from "@/components/Marquee";
+import Marqueee from "@/components/Marqueee"
+import TopGenerations from "@/components/FeaturedTiles";
 import WhyChooseTiles from "@/components/WhyChooseTiles";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
   return (
     <div>
-        <MarqueeComponent></MarqueeComponent>
-        <Banner></Banner>
-        <FeaturedTiles></FeaturedTiles>
-        <WhyChooseTiles></WhyChooseTiles>
+      <Marqueee></Marqueee>
+      <Banner/>
+      <TopGenerations/>
+      <WhyChooseTiles></WhyChooseTiles>
+   
     </div>
   );
 }
