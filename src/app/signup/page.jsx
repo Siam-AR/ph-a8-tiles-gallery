@@ -196,13 +196,14 @@ export default function SignUpPage() {
   };
 
   return (
-    <Card className="border max-w-5xl mx-auto py-10 mt-5 px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <AuthAnimation />
-      </div>
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <Card className="border w-full max-w-5xl py-8 md:py-10 px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-start">
+        <div className="hidden lg:block">
+          <AuthAnimation />
+        </div>
 
-      <div>
-        <h1 className="text-center text-2xl font-bold">Sign Up</h1>
+        <div>
+          <h1 className="text-center text-2xl md:text-3xl font-bold">Sign Up</h1>
 
         {error && (
           <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
@@ -380,5 +381,6 @@ export default function SignUpPage() {
         </div>
       </div>
     </Card>
+    </div>
   );
 }

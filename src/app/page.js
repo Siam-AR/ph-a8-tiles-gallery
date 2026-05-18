@@ -6,10 +6,12 @@ import Marquee from "react-fast-marquee";
 
 export default function Home() {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <Marqueee></Marqueee>
       <Banner/>
-      <TopGenerations/>
+      <div className="px-4 md:px-0">
+        <TopGenerations/>
+      </div>
       <WhyChooseTiles></WhyChooseTiles>
    
     </div>

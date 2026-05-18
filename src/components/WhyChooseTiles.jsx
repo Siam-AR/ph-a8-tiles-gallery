@@ -40,40 +40,40 @@ const WhyChooseTiles = () => {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-12 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-8 md:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Why Choose Our Tiles
           </h2>
 
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
             Discover premium tile collections designed for modern interiors,
             combining durability, elegance, and timeless aesthetics.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="border rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white"
+              className="border rounded-2xl md:rounded-3xl p-6 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white"
             >
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mb-6">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-black text-white flex items-center justify-center mb-4 md:mb-6">
                 {feature.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold mb-3">
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-500 leading-relaxed text-sm">
+              <p className="text-gray-500 leading-relaxed text-xs sm:text-sm">
                 {feature.description}
               </p>
             </div>

@@ -18,10 +18,10 @@ const Footer = () => {
       {/* Top Border */}
       <div className="h-px w-full bg-linear-to-r from-transparent via-white/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-16 relative z-10">
         
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
           
           {/* Brand */}
           <div>

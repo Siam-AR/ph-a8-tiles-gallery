@@ -37,12 +37,12 @@ const Banner = () => {
         autoplay={{ delay: 4500, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         loop
-        className={`${styles.bannerSwiper} h-[75vh]`}
+        className={`${styles.bannerSwiper} h-[50vh] sm:h-[60vh] md:h-[75vh]`}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="h-[75vh] bg-cover bg-center bg-no-repeat relative"
+              className="h-[50vh] sm:h-[60vh] md:h-[75vh] bg-cover bg-center bg-no-repeat relative"
               style={{
                 backgroundImage: `url(${slide.image})`,
               }}
@@ -54,12 +54,12 @@ const Banner = () => {
                   backgroundColor: `rgba(0,0,0,${slide.overlayOpacity})`,
                 }}
               >
-                <div className="max-w-7xl mx-auto px-6 text-white">
-                  <h1 className="text-4xl md:text-6xl font-bold whitespace-pre-line mb-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white">
+                  <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold whitespace-pre-line mb-2 sm:mb-4">
                     {slide.title}
                   </h1>
 
-                  <p className="text-lg md:text-xl max-w-2xl mb-6 text-gray-200">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mb-4 sm:mb-6 text-gray-200">
                     {slide.description}
                   </p>
 
