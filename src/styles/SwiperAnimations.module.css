@@ -1,0 +1,28 @@
+/* Banner-only Swiper animation helpers */
+
+:global(.bannerSwiper) {
+  /* keep banner padding separate from other Swipers */
+  padding-bottom: 0;
+}
+
+/* subtle fade/slide for banner slides only */
+:global(.bannerSwiper) :global(.swiper-slide) {
+  transition: opacity 600ms ease, transform 700ms cubic-bezier(.22,.9,.45,1);
+}
+
+:global(.bannerSwiper) :global(.swiper-slide-active) {
+  transform: translateY(-6px);
+  opacity: 1;
+}
+
+:global(.bannerSwiper) :global(.swiper-slide) {
+  opacity: 0.95;
+}
+
+.slideWrapper {
+  display: block;
+}
+
+.featureSlide {
+  display: block;
+}
