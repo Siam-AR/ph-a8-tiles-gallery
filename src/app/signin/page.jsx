@@ -13,7 +13,7 @@ import {
   TextField,
   Link,
 } from "@heroui/react";
-import { GrGoogle } from "react-icons/gr";
+import { FcGoogle } from "react-icons/fc";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -170,7 +170,7 @@ export default function SignInPage() {
               isDisabled={isLoading || isGoogleLoading}
               isLoading={isLoading}
             >
-              {isLoading ? "SIGNING IN..." : "SIGN IN"}
+              {isLoading ? "lOGGING IN..." : "LOG IN"}
             </Button>
           </div>
         </Form>
@@ -182,7 +182,7 @@ export default function SignInPage() {
           isDisabled={isLoading || isGoogleLoading}
           isLoading={isGoogleLoading}
         >
-          <GrGoogle /> {isGoogleLoading ? "Signing In..." : "Sign In With Google"}
+          <FcGoogle /> {isGoogleLoading ? "Logging In..." : "Sign In With Google"}
         </Button>
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">

@@ -16,7 +16,6 @@ const Navbar = () => {
   return (
     <header className="border-b bg-white sticky top-0 z-50 shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        
         {/* Logo */}
         <Link href={"/"} className="flex gap-3 items-center">
           <Image
@@ -28,9 +27,7 @@ const Navbar = () => {
             className="rounded-lg"
           />
 
-          <h2 className="font-black text-2xl tracking-tight">
-            tile.gallery
-          </h2>
+          <h2 className="font-black text-2xl tracking-tight">tile.gallery</h2>
         </Link>
 
         {/* Nav Links */}
@@ -58,16 +55,11 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {!user && (
             <>
-              <Link href={"/signup"}>
-                <Button color="primary">
-                  Sign Up
-                </Button>
-              </Link>
-
               <Link href={"/signin"}>
-                <Button variant="bordered">
-                  Sign In
-                </Button>
+                <Button variant="bordered">Log In</Button>
+              </Link>
+              <Link href={"/signup"}>
+                <Button color="primary">Sign Up</Button>
               </Link>
             </>
           )}
@@ -80,7 +72,9 @@ const Navbar = () => {
                   src={user?.image}
                   referrerPolicy="no-referrer"
                 />
-                <Avatar.Fallback>{user?.name?.charAt(0) ?? "U"}</Avatar.Fallback>
+                <Avatar.Fallback>
+                  {user?.name?.charAt(0) ?? "U"}
+                </Avatar.Fallback>
               </Avatar>
 
               <Button
