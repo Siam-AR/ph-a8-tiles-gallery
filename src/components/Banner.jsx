@@ -3,6 +3,7 @@
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,18 +13,51 @@ import styles from "../styles/SwiperAnimations.module.css";
 
 const Banner = () => {
   const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Fetch banner data
   useEffect(() => {
-    fetch("/banner.json")
-      .then((res) => res.json())
-      .then((data) => setSlides(data));
+    let mounted = true;
+
+    async function loadBanner() {
+      try {
+        const res = await fetch("/banner.json");
+        const data = await res.json();
+
+        // Preload images
+        const urls = data.map((s) => s.image).filter(Boolean);
+        await Promise.all(
+          urls.map(
+            (u) =>
+              new Promise((resolve) => {
+                const img = new Image();
+                img.src = u;
+                img.onload = img.onerror = () => resolve(null);
+              }),
+          ),
+        );
+
+        if (mounted) {
+          setSlides(data);
+          setLoading(false);
+        }
+      } catch (err) {
+        console.error("Failed to load banner", err);
+        if (mounted) setLoading(false);
+      }
+    }
+
+    loadBanner();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  if (slides.length === 0) {
+  if (loading) {
     return (
-      <div className="h-[75vh] flex items-center justify-center">
-        Loading...
+      <div className="h-[75vh]">
+        <Loader message="Loading banner…" />
       </div>
     );
   }
