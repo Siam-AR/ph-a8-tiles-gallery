@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-500/10 blur-3xl rounded-full" />
 
       {/* Top Border */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="h-px w-full bg-linear-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
         
@@ -104,7 +104,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="/profile"
+                  href="/my-profile"
                   className="hover:text-cyan-400 transition"
                 >
                   My Profile
@@ -154,7 +154,7 @@ const Footer = () => {
 
             <Link
               href="/all-tiles"
-              className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition duration-300 text-sm font-semibold shadow-lg shadow-cyan-500/20"
+              className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-linear-to-r from-cyan-500 to-blue-600 hover:scale-105 transition duration-300 text-sm font-semibold shadow-lg shadow-cyan-500/20"
             >
               Browse Tiles →
             </Link>
@@ -162,7 +162,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="my-10 h-px w-full bg-linear-to-r from-transparent via-white/20 to-transparent" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
