@@ -7,16 +7,15 @@ export async function proxy(request) {
     headers: await headers(),
   });
 
-  const protectedRoutes = [
-    "/profile",  
-    "/all-photos"
-  ];
-
   const pathname = request.nextUrl.pathname;
 
-  const isProtected = protectedRoutes.some((route) =>
-    pathname.startsWith(route)
-  );
+  // Protect only:
+  // /my-profile
+  // /all-tiles/[id]
+
+  const isProtected =
+    pathname.startsWith("/my-profile") ||
+    /^\/all-tiles\/[^/]+$/.test(pathname);
 
   if (isProtected && !session) {
     return NextResponse.redirect(new URL("/signin", request.url));
@@ -26,7 +25,5 @@ export async function proxy(request) {
 }
 
 export const config = {
-  matcher: [
-    "/profile/:path*",
-    "/all-tiles/:path*"],
+  matcher: ["/my-profile/:path*", "/all-tiles/:path*"],
 };
