@@ -74,21 +74,14 @@ const Navbar = () => {
 
           {user && (
             <div className="flex items-center gap-3">
-              <Avatar
-                src={user?.image}
-                name={user?.name}
-                size="sm"
-                isBordered
-                showFallback
-                referrerPolicy="no-referrer"
-                ImgComponentProps={{
-                  referrerPolicy: "no-referrer",
-                  crossOrigin: "anonymous",
-                  onError: (e) => {
-                    console.log("Image failed to load");
-                  },
-                }}
-              />
+              <Avatar className="h-9 w-9" isBordered>
+                <Avatar.Image
+                  alt={user?.name ?? "Profile avatar"}
+                  src={user?.image}
+                  referrerPolicy="no-referrer"
+                />
+                <Avatar.Fallback>{user?.name?.charAt(0) ?? "U"}</Avatar.Fallback>
+              </Avatar>
 
               <Button
                 onClick={handleSignOut}
