@@ -8,10 +8,22 @@ const db = client.db("pixgen");
 
 const googleClientId = process.env.GOOGLE_CLIENT_ID;
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
+const configuredAppUrl = process.env.BETTER_AUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL;
+const fallbackAppUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
+
+const isLocalhostUrl = (value) => {
+  try {
+    const hostname = new URL(value).hostname;
+    return hostname === "localhost" || hostname === "127.0.0.1";
+  } catch {
+    return false;
+  }
+};
+
 const appUrl =
-  process.env.BETTER_AUTH_URL ??
-  process.env.NEXT_PUBLIC_APP_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+  process.env.NODE_ENV === "production" && configuredAppUrl && isLocalhostUrl(configuredAppUrl)
+    ? fallbackAppUrl
+    : configuredAppUrl ?? fallbackAppUrl;
 
 // Ensure the MongoDB client is connected
 async function getConnectedClient() {
